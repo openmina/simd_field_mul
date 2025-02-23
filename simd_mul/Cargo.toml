@@ -1,0 +1,17 @@
+[package]
+name = "simd_mul"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ark-ff = { git = "https://github.com/openmina/algebra", rev = "aea157a", features = ["asm", "std"] }
+mina-hasher = { git = "https://github.com/openmina/proof-systems" }
+rand = {version = "0.8", features = [ "small_rng" ] }
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "avx_benchmark"
+harness = false
+
+[profile.bench]
+inherits = "release"
